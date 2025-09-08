@@ -37,9 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'description' => sanitizeInput($_POST['description']),
             'address' => sanitizeInput($_POST['address']),
             'phone' => sanitizeInput($_POST['phone']),
-            'image' => sanitizeInput($_POST['image'])
+            'image' => isset($_FILES['image_file']) ? $_FILES['image_file']['name'] : ''
         ];
+
         
+
         $result = $restaurant->updateRestaurant($id, $data);
         if ($result['success']) {
             $success = $result['message'];

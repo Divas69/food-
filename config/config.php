@@ -27,7 +27,7 @@ require_once __DIR__ . '/database.php';
  * @return string
  */
 function sanitizeInput($data) {
-    $data = trim($data);
+  $value = trim($value ?? '');
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
